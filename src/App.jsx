@@ -808,7 +808,7 @@ function LoginPage({ onLogin }) {
             back.
           </em>
         </h2>
-        <p className="login-sub">Members only — Sign in to continue</p>
+        <p className="login-sub">Sign in with your Instagram</p>
 
         <form onSubmit={handleSubmit} style={{ width: '100%', maxWidth: 400 }}>
           <div className="field-group">
@@ -843,7 +843,7 @@ function LoginPage({ onLogin }) {
         </form>
 
         <p className="login-footer-note">
-          Demo: first attempt fails · second succeeds
+         All rights reserved · Wardrobe fashioninsta
         </p>
       </div>
     </div>
@@ -935,7 +935,7 @@ function MainApp({ username, onLogout }) {
       {/* Marquee */}
       <div className="marquee-strip">
         <div className="marquee-inner">
-          {[...Array(2)].map((_, i) =>
+          {[...Array(5)].map((_, i) =>
             [
               'Free Returns',
               'Sustainably Sourced',
