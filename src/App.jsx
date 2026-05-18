@@ -845,7 +845,7 @@ function LoginPage({ onLogin }) {
         </form>
 
         <p className="login-footer-note">
-          Demo: First 4 attempts fail · 5th attempt succeeds
+          All rights reserved · Wardrobe Fashioninsta
         </p>
       </div>
     </div>
